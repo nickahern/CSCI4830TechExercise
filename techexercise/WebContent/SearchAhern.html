@@ -1,0 +1,60 @@
+<html>
+<head>
+<style>
+header {
+    background-color:#653727;
+    color:#f2ba42;
+    text-align:center;
+    padding:5px;	 
+}
+nav {
+    line-height:30px;
+    background-color:#b88a57;
+    height:300px;
+    width:100px;
+    float:left;
+    padding:5px;	      
+}
+section {
+    width:310px;
+    float:left;
+    padding:10px;	 	 
+}
+footer {
+    background-color:#653727;
+    color:#f2ba42;
+    clear:both;
+    text-align:center;
+    padding:5px;	 	 
+}
+</style>
+</head>
+
+<body bgcolor=#f2e4d6>
+<header>
+<h1> To-do List Web App </h1>
+</header>
+
+<nav>
+<a href="/techexercise/InsertAhern.html">Add a task</a> <br>
+</nav>
+
+<section>
+	<h3>Search for a task from your to-do list:</h3>
+	<p>(Be sure to input the date in the same format as when it was entered!)</p>
+	<p>To view the full list, leave the box blank and simply click the Search button.</p>
+	
+	<form action="SearchAhern" method="POST">
+	
+		Due Date: <input type="text" name="keyword"> <br />
+		
+		<input type="submit" value="Search" />
+	</form>
+
+</section>
+
+<footer>
+Copyright &copy; 2019 by Nicholas Ahern
+</footer>
+</body>
+</html>

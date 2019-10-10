@@ -15,14 +15,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/InsertAhern")
-public class InsertAhern extends HttpServlet {
+public class InsertAhern extends HttpServlet
+{
    private static final long serialVersionUID = 1L;
 
-   public InsertAhern() {
+   public InsertAhern()
+   {
       super();
    }
 
-   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+   {
       String dueDate = request.getParameter("dueDate");
       String dueTime = request.getParameter("dueTime");
       String taskName = request.getParameter("taskName");
@@ -33,7 +36,8 @@ public class InsertAhern extends HttpServlet {
       Connection connection = null;
       String insertSql = " INSERT INTO myTableTest (id, DUEDATE, DUETIME, TASKNAME, DESCRIPTION, LENGTH, CONSTRAINTS) values (default, ?, ?, ?, ?, ?, ?)";
 
-      try {
+      try
+      {
          DBConnectionAhern.getDBConnection();
          connection = DBConnectionAhern.connection;
          PreparedStatement preparedStmt = connection.prepareStatement(insertSql);
@@ -44,7 +48,10 @@ public class InsertAhern extends HttpServlet {
          preparedStmt.setString(5, length);
          preparedStmt.setString(6, constraints);
          preparedStmt.execute();
-      } catch (Exception e) {
+         connection.close();
+      }
+      catch (Exception e)
+      {
          e.printStackTrace();
       }
 
@@ -53,55 +60,29 @@ public class InsertAhern extends HttpServlet {
       PrintWriter out = response.getWriter();
       String title = "Task Added Successfully!";
       String docType = "<!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//en\">\n";
-      out.println(docType + //
+      out.println(
+    		docType + //
             "<html>\n" + //
             "<head><title>" + title + "</title></head>\n" + //
-            "<body bgcolor=\"#f0f0f0\">\n" + //
+            "<body bgcolor=\"#85b6c5\">\n" + //
             "<h2 align=\"center\">" + title + "</h2>\n" + //
             "<ul>\n" + //
 
-            "  <li><b>Due Date</b>: " + dueDate + "\n" + //
-            "  <li><b>Due Time</b>: " + dueTime + "\n" + //
-            "  <li><b>Task Name</b>: " + taskName + "\n" + //
+            "  <li><b>Due date</b>: " + dueDate + "\n" + //
+            "  <li><b>Due time</b>: " + dueTime + "\n" + //
+            "  <li><b>Task name</b>: " + taskName + "\n" + //
             "  <li><b>Description</b>: " + description + "\n" + //
             "  <li><b>Length</b>: " + length + "\n" + //
             "  <li><b>Constraints</b>: " + constraints + "\n" + //
             "</ul>\n");
 
-      out.println("<a href=/techexercise/TechExerciseAhern.html>Add another task</a> <br>");
+      out.println("<a href=/techexercise/InsertAhern.html>Add another task</a> <br>");
+      out.println("<a href=/techexercise/SearchAhern.html>Search the list</a> <br>");
       out.println("</body></html>");
-      
-      try
-      {
-          String selectSQL = "SELECT * FROM myTableTest";
-          out.println(selectSQL + "<br>");
-          out.println("------------------------------------------<br>");
-          PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
-          ResultSet rs = preparedStatement.executeQuery();
-          while (rs.next())
-          {
-             String dueDate1 = rs.getString("DUEDATE");
-             String dueTime1 = rs.getString("DUETIME");
-             String taskName1 = rs.getString("TASKNAME");
-             String description1 = rs.getString("DESCRIPTION");
-             String length1 = rs.getString("LENGTH");
-             String constraints1 = rs.getString("CONSTRAINTS");
-             response.getWriter().append("DUE DATE: " + dueDate1 + ", ");
-             response.getWriter().append("DUE TIME: " + dueTime1 + ", ");
-             response.getWriter().append("DUE DATE: " + taskName1 + ", ");
-             response.getWriter().append("DUE TIME: " + description1 + ", ");
-             response.getWriter().append("DUE DATE: " + length1 + ", ");
-             response.getWriter().append("USER PHONE: " + constraints1 + "<br>");
-          }
-          connection.close();
-       }
-      catch (SQLException e)
-      {
-          e.printStackTrace();
-       }
    }
 
-   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+   {
       doGet(request, response);
    }
 

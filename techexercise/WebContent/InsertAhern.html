@@ -2,27 +2,28 @@
 <head>
 <style>
 header {
-    background-color:blue;
-    color:white;
+    background-color:#004d80;
+    color:#eef4f8;
     text-align:center;
     padding:5px;	 
 }
 nav {
     line-height:30px;
-    background-color:#eeeeee;
+    background-color:#85b6c5;
     height:300px;
     width:100px;
     float:left;
     padding:5px;	      
 }
 section {
-    width:350px;
+	background-color:#eef4f8;
+    width:400px;
     float:left;
     padding:10px;	 	 
 }
 footer {
-    background-color:blue;
-    color:white;
+    background-color:#004d80;
+    color:#eef4f8;
     clear:both;
     text-align:center;
     padding:5px;	 	 
@@ -30,25 +31,26 @@ footer {
 </style>
 </head>
 
-<body>
+<body bgcolor=#eef4f8>
 <header>
-<h1> To-do List  </h1>
+<h1> To-do List Web App </h1>
 </header>
 
 <nav>
-<br>
+<a href="/techexercise/SearchAhern.html">Search the list</a> <br>
 </nav>
 
 <section>
-	<h1>Add a task to your to-do list:</h1>
+	<h3>Add a task to your to-do list:</h3>
+	<p>(Be sure to input something into each field!)</p>
 	
 	<form action="InsertAhern" method="POST">
 	
-		Due Date: <input type="text" name="dueDate"> <br />
-		Due Time: <input type="text" name="dueTime"> <br />
-		Task Name: <input type="text" name="taskName"> <br />
+		Due date: <input type="text" name="dueDate"> <br />
+		Due time: <input type="text" name="dueTime"> <br />
+		Task name: <input type="text" name="taskName"> <br />
 		Description: <input type="text" name="description"> <br />
-		Length (hours): <input type="text" name="length"> <br />
+		Length (in hours): <input type="text" name="length"> <br />
 		Constraints (materials, etc.): <input type="text" name="constraints"> <br />
 		
 		<input type="submit" value="Add" />
@@ -57,7 +59,7 @@ footer {
 </section>
 
 <footer>
-Copyright
+Copyright &copy; 2019 by Nicholas Ahern
 </footer>
 </body>
 </html>
