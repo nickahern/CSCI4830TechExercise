@@ -49,12 +49,12 @@ public class SearchAhern extends HttpServlet
 
          if (keyword.isEmpty())
          {
-            String selectSQL = "SELECT * FROM myTableTest";
+            String selectSQL = "SELECT * FROM myTableFinal";
             preparedStatement = connection.prepareStatement(selectSQL);
          }
          else
          {
-            String selectSQL = "SELECT * FROM myTableTest WHERE DUEDATE LIKE ?";
+            String selectSQL = "SELECT * FROM myTableFinal WHERE DUEDATE LIKE ?";
             String theUserName = keyword + "%";
             preparedStatement = connection.prepareStatement(selectSQL);
             preparedStatement.setString(1, theUserName);
@@ -77,7 +77,7 @@ public class SearchAhern extends HttpServlet
                 out.append("<b>Due time</b>: " + dueTime1 + "; ");
                 out.append("<b>Task name</b>: " + taskName1 + "; ");
                 out.append("<b>Description</b>: " + description1 + "; ");
-                out.append("<b>Length</b>: " + length1 + "; ");
+                out.append("<b>Length in hours</b>: " + length1 + "; ");
                 out.append("<b>Constraints</b>: " + constraints1 + "</li> \n");
             }
          }

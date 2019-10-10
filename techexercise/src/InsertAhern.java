@@ -34,7 +34,7 @@ public class InsertAhern extends HttpServlet
       String constraints = request.getParameter("constraints");
 
       Connection connection = null;
-      String insertSql = " INSERT INTO myTableTest (id, DUEDATE, DUETIME, TASKNAME, DESCRIPTION, LENGTH, CONSTRAINTS) values (default, ?, ?, ?, ?, ?, ?)";
+      String insertSql = " INSERT INTO myTableFinal (id, DUEDATE, DUETIME, TASKNAME, DESCRIPTION, LENGTH, CONSTRAINTS) values (default, ?, ?, ?, ?, ?, ?)";
 
       try
       {
@@ -72,7 +72,7 @@ public class InsertAhern extends HttpServlet
             "  <li><b>Due time</b>: " + dueTime + "\n" + //
             "  <li><b>Task name</b>: " + taskName + "\n" + //
             "  <li><b>Description</b>: " + description + "\n" + //
-            "  <li><b>Length</b>: " + length + "\n" + //
+            "  <li><b>Length in hours</b>: " + length + "\n" + //
             "  <li><b>Constraints</b>: " + constraints + "\n" + //
             "</ul>\n");
 
